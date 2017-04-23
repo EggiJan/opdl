@@ -39,7 +39,7 @@ func main() {
   // Create output folder
   os.Mkdir(folder, 0777)
 
-  baseURL := "http://185.97.6.4/kapitel/"
+  baseURL := "http://85.14.254.67/kapitel/"
 
   // Download in a loop
   for i := 1; i <= MAXIMAGES; i++ {
