@@ -4,7 +4,14 @@
 1. Download and unpack bundle.zip
 2. Run onepiece-dl.app
 
-###Build
+### Build
+
 ```
 cd $GOPATH/src/opdl && go build
+```
+
+## Create bundle
+
+```
+make bundle
 ```

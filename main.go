@@ -32,7 +32,7 @@ func main() {
   var wg sync.WaitGroup
   wg.Add(MAXIMAGES)
 
-
+  fileTypes := []string{"jpg", "png", "tiff"}
 
   fmt.Println("Chapter:", chapter)
 
@@ -53,7 +53,11 @@ func main() {
         index = strconv.Itoa(i)
       }
 
-      Download(baseURL + strconv.Itoa(chapter) + "/" + index + ".jpg")
+      // Download all filetypes
+      for j := 0; j < len(fileTypes); j++ {
+        Download(baseURL + strconv.Itoa(chapter) + "/" + index + "." + fileTypes[j])
+      }
+      
     } (i)
 
   }
