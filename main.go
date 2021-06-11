@@ -22,6 +22,13 @@ func init()  {
 func main() {
   fmt.Println("Downloading file...")
 
+  var chap string
+  if chapter < 1000 {
+    chap = "0" + strconv.Itoa(chapter)
+  } else {
+    chap = strconv.Itoa(chapter)
+  }
+
   args := os.Args
 
   if len(args) < 2 {
@@ -34,12 +41,12 @@ func main() {
 
   fileTypes := []string{"jpg", "png", "tiff"}
 
-  fmt.Println("Chapter:", chapter)
+  fmt.Println("Chapter:", chap)
 
   // Create output folder
   os.Mkdir(folder, 0777)
 
-  baseURL := "http://85.14.254.67/manga/kapitel/"
+  baseURL := "https://manga-lesen.com/kapitel/"
 
   // Download in a loop
   for i := 1; i <= MAXIMAGES; i++ {
@@ -55,7 +62,7 @@ func main() {
 
       // Download all filetypes
       for j := 0; j < len(fileTypes); j++ {
-        Download(baseURL + strconv.Itoa(chapter) + "/" + index + "." + fileTypes[j])
+        Download(baseURL + chap + "/" + index + "." + fileTypes[j])
       }
       
     } (i)
